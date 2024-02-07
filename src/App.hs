@@ -35,5 +35,15 @@ server :: Server HttpApi
 server = getStatusById
 
 getStatusById :: Integer -> Handler HttpStatus
-getStatusById 100 = return continue
-getStatusById _ = return continue
+getStatusById x = return $ searchCode x
+
+searchCode :: Integer -> HttpStatus
+searchCode 100 = continue
+searchCode 101 = switchingProtocols
+searchCode 102 = processing
+searchCode 103 = earlyHints
+searchCode 200 = ok
+searchCode 201 = created
+searchCode 202 = accepted
+searchCode 203 = nonAuthoritativeInformation
+searchCode x = unknown x
