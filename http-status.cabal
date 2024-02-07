@@ -26,14 +26,22 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      App
+      Codes
+      DataTypes
   other-modules:
       Paths_http_status
   hs-source-dirs:
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , servant
+    , servant-server
+    , transformers
+    , wai
+    , warp
   default-language: Haskell2010
 
 executable http-status-exe
@@ -44,8 +52,14 @@ executable http-status-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , http-status
+    , servant
+    , servant-server
+    , transformers
+    , wai
+    , warp
   default-language: Haskell2010
 
 test-suite http-status-test
@@ -57,6 +71,12 @@ test-suite http-status-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
     , http-status
+    , servant
+    , servant-server
+    , transformers
+    , wai
+    , warp
   default-language: Haskell2010
