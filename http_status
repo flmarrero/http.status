@@ -1,0 +1,12 @@
+#!/bin/sh
+
+. /etc/rc.subr
+
+name="http_status"
+desc="Translating http status codes into sentences"
+rcvar=${name}_enable
+
+command="/usr/local/bin/http_status" 
+
+load_rc_config $name
+run_rc_command "$1"
